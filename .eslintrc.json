@@ -23,6 +23,8 @@
     "ignorePatterns": [
       "dist/",
       "build/",
-      "luxon.js", "**/assets/*.js"
+      "luxon.js", 
+      "**/assets/*.js",
+      "server.js"
     ]
   }  

@@ -29,16 +29,22 @@ body {
   min-width: 300px;
 }
 
+.submit {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+
 .square {
-  height: 15px; 
-  width: 15px; 
+  height: 15px;
+  width: 15px;
   border: solid 2px lightgray;
 }
 
 input:focus {
   border: none;
   box-shadow: none;
-  outline: none;  
+  outline: none;
 }
 
 i.fas,
@@ -47,7 +53,7 @@ input[type="text"]::placeholder {
 }
 
 .bg-clear-button {
-  background-color: #f6f6f6;  
+  background-color: #f6f6f6;
 }
 
 .clear-tab {
@@ -58,4 +64,3 @@ i.fas:hover,
 .clear-tab:hover {
   color: black;
 }
-

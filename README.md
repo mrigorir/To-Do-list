@@ -1,6 +1,14 @@
 # To-Do list
 
-> ...
+> This is a To-Do list inspired on minimalist website. It's used to remind the user which activities have to do and which others are pending, allowing him/her to remove the completed ones.
+
+## What was build in this part of the project:
+
+ - Use Webpack dependencies for better JS and CSS file performance.
+
+ - Create To-Do list using HTML and CSS styles.
+
+ - Create a function to display dynamically a predefined list from the index.js file.
 
 ## Getting Started
 
