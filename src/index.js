@@ -11,7 +11,7 @@ const tasks = [
   {
     description: 'Eat dinner.',
     completed: false,
-    index: 3,
+    index: 2,
   },
   {
     description: 'Get a developer job.',

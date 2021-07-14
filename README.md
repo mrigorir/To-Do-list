@@ -52,6 +52,8 @@ To make sure the linters' checks using Github Actions work properly, you should 
 
 - run in your terminal `npm run server` to see webpack html file in action.
 
+- run `npm install express` in case you get the error after running the server.
+
 ## Author
 
 👤 **Marco Parra**
