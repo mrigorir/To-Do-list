@@ -25,6 +25,7 @@
       "build/",
       "luxon.js", 
       "**/assets/*.js",
-      "server.js"
+      "server.js",
+      "webpack.config.js"
     ]
   }  
