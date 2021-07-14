@@ -1,6 +1,14 @@
 # To-Do list
 
-> ...
+> This is a To-Do list inspired on minimalist website. It's used to remind the user which activities have to do and which others are pending, allowing him/her to remove the completed ones.
+
+## What was build in this part of the project:
+
+ - Use Webpack dependencies for better JS and CSS file performance.
+
+ - Create To-Do list using HTML and CSS styles.
+
+ - Create a function to display dynamically a predefined list from the index.js file.
 
 ## Getting Started
 
@@ -43,6 +51,8 @@ To make sure the linters' checks using Github Actions work properly, you should 
 - I recommend the use of VS code as a code editor, but you can use whatever you want.
 
 - run in your terminal `npm run server` to see webpack html file in action.
+
+- run `npm install express` in case you get the error after running the server.
 
 ## Author
 
