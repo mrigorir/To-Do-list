@@ -17,9 +17,9 @@
  - Update values upon drag & drop events. 
 
 ## Image Preview
-![Screenshot Main Page](assets/imgs/capture.jpg)
+![Screenshot Main Page](./src/assets/imgs/capture.jpg)
 
-## :star::star: [Live Demo](https://mrigorir.github.io/To-Do-list/) :star::star:
+## :star::star: [Live Demo](https://mrigorir.github.io/To-Do-list/src/) :star::star:
 
 ## Getting Started
 
