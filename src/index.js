@@ -22,35 +22,22 @@ let tasks = [
     index: 2,
   },
 ];
-// Functions
-const displayTask = (tasks) => {
-  tasks.forEach((task) => {
-    const li = document.createElement('li');
-    li.setAttribute('draggable', 'true');
-    li.dataset.id = `${task.index}`;
-    li.classList.add('d-flex', 'align-items-center', 'justify-content-between', 'p-3', 'border-top', 'draggables');
-    li.innerHTML = `<div class="d-flex align-items-center">
-                      <input type="checkbox" class="me-2 check" data-id="${task.index}">
-                      <span class="border-0" contenteditable="true"> ${task.description} </span>
-                    </div> 
-                    <i class="fas fa-ellipsis-v"></i>`;
-    list.appendChild(li);
-  });
-};
 
-list.addEventListener('click', (e) => {
+// Functions
+list.addEventListener('change', (e) => {
+  const pos = Array.prototype.indexOf.call(list.childNodes, e.target.parentNode.parentNode);
   if (e.target.classList.contains('check')) {
     if (e.target.checked) {
       Status.toggleLine(e);
-      tasks[parseInt(e.target.dataset.id, 10)].completed = true;
+      tasks[pos].completed = true;
       Status.checkAttribute(e);
     } else {
       Status.toggleLine(e);
-      tasks[parseInt(e.target.dataset.id, 10)].completed = false;
+      tasks[pos].completed = false;
       Status.checkAttribute(e);
     }
-    localStorage.setItem('tasksList', JSON.stringify(tasks));
   }
+  localStorage.setItem('tasksList', JSON.stringify(tasks));
 });
 
 const loadList = () => {
@@ -83,12 +70,10 @@ const loadList = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log(JSON.parse(localStorage.getItem('tasksList')) !== null);
   if (JSON.parse(localStorage.getItem('tasksList')) !== null) {
     tasks = JSON.parse(localStorage.getItem('tasksList'));
   }
   Sort.sortTask(tasks);
-  displayTask(tasks);
+  Task.displayTask(tasks, list);
   loadList();
-  localStorage.setItem('tasksList', JSON.stringify(tasks));
 });
