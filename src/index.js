@@ -23,10 +23,9 @@ let tasks = [
   },
 ];
 
-
 // Functions
 list.addEventListener('change', (e) => {
-  let pos = Array.prototype.indexOf.call(list.childNodes, e.target.parentNode.parentNode);
+  const pos = Array.prototype.indexOf.call(list.childNodes, e.target.parentNode.parentNode);
   if (e.target.classList.contains('check')) {
     if (e.target.checked) {
       Status.toggleLine(e);
