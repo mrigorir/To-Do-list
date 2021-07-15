@@ -10,6 +10,17 @@
 
  - Create a function to display dynamically a predefined list from the index.js file.
 
+ - Create javascript modules with drag & drop, sorting, and status methods.
+
+ - Use LocalStorage to preserve data. 
+
+ - Update values upon drag & drop events. 
+
+## Image Preview
+![Screenshot Main Page](assets/imgs/capture.jpg)
+
+## :star::star: [Live Demo](https://mrigorir.github.io/To-Do-list/) :star::star:
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps:

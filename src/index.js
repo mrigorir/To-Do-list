@@ -1,9 +1,9 @@
-//Imports
+// Imports
 import './style.css';
 import { Sort, DnD } from './modules/drag&sort.js';
 import { Task } from './modules/tasks.js';
 import { Status } from './modules/status.js';
-//Variables
+// Variables
 const list = document.getElementById('list');
 let tasks = [
   {
@@ -22,7 +22,7 @@ let tasks = [
     index: 2,
   },
 ];
-//Functions
+// Functions
 const displayTask = (tasks) => {
   tasks.forEach((task) => {
     const li = document.createElement('li');
@@ -44,7 +44,7 @@ list.addEventListener('click', (e) => {
       Status.toggleLine(e);
       tasks[parseInt(e.target.dataset.id, 10)].completed = true;
       Status.checkAttribute(e);
-    }else {
+    } else {
       Status.toggleLine(e);
       tasks[parseInt(e.target.dataset.id, 10)].completed = false;
       Status.checkAttribute(e);
@@ -55,15 +55,15 @@ list.addEventListener('click', (e) => {
 
 const loadList = () => {
   const items = document.querySelectorAll('.draggables');
-  items.forEach(item => {
-    item.addEventListener('dragstart', e => {
+  items.forEach((item) => {
+    item.addEventListener('dragstart', (e) => {
       DnD.dragStart(e);
     });
-    
-    item.addEventListener('dragover', e => {
+
+    item.addEventListener('dragover', (e) => {
       e.preventDefault();
     });
-    
+
     item.addEventListener('drop', (e) => {
       DnD.drop(e);
 
@@ -75,20 +75,20 @@ const loadList = () => {
         localStorage.setItem('tasksList', JSON.stringify(tasks));
       });
     });
-    
-    item.addEventListener('dragend', e => {
+
+    item.addEventListener('dragend', (e) => {
       DnD.dragOver(e);
     });
   });
-}
+};
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (JSON.parse(localStorage.getItem('taskList')) !== null) {
-    tasks = JSON.parse(localStorage.getItem('taskList'));
+  console.log(JSON.parse(localStorage.getItem('tasksList')) !== null);
+  if (JSON.parse(localStorage.getItem('tasksList')) !== null) {
+    tasks = JSON.parse(localStorage.getItem('tasksList'));
   }
   Sort.sortTask(tasks);
   displayTask(tasks);
-  localStorage.setItem('tasksList', JSON.stringify(tasks));
   loadList();
+  localStorage.setItem('tasksList', JSON.stringify(tasks));
 });
-
