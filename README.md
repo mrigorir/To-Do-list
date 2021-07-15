@@ -19,8 +19,6 @@
 ## Image Preview
 ![Screenshot Main Page](./src/assets/imgs/capture.jpg)
 
-## :star::star: [Live Demo](https://mrigorir.github.io/To-Do-list/src/) :star::star:
-
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps:
