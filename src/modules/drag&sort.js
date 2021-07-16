@@ -16,9 +16,9 @@ class DnD {
    static drop = (event) => {
      event.stopPropagation();
      if (event.currentTarget !== element) {
-      element.innerHTML = event.currentTarget.innerHTML;
-      event.currentTarget.innerHTML = event.dataTransfer.getData('text/html');
-    }
+       element.innerHTML = event.currentTarget.innerHTML;
+       event.currentTarget.innerHTML = event.dataTransfer.getData('text/html');
+     }
    }
 
    static dragOver = (event) => {

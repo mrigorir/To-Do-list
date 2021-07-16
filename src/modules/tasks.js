@@ -35,18 +35,15 @@ class Task {
 
   static edit = (tasks, list) => {
     const editableItems = document.querySelectorAll('#list span');
-  
+
     editableItems.forEach((item) => {
       item.addEventListener('keyup', (e) => {
-        let pos = Array.prototype.indexOf.call(list.childNodes, e.target.parentNode.parentNode);
+        const pos = Array.prototype.indexOf.call(list.childNodes, e.target.parentNode.parentNode);
         tasks[pos].description = item.textContent;
         localStorage.setItem('tasksList', JSON.stringify(tasks));
       });
     });
   };
-  
-
 }
 
 export { Task };
-

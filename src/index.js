@@ -10,40 +10,9 @@ const form = document.getElementById('form');
 const clearCompletedTasks = document.querySelector('.clear-tab');
 let pos;
 let tasks = [];
-let index_pos = 0;
+let indexPos = 0;
 
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const newTask = document.getElementById('newTask').value;
-  const add_task = new Task(newTask, false, index_pos);
-  tasks.push(add_task);
-  Task.displayTask(newTask, index_pos, list);
-  e.target.reset();
-  index_pos++;
-  Task.edit(tasks, list)
-  localStorage.setItem('tasksList', JSON.stringify(tasks));
-  //location.reload();
-  loadList();
-});
-
-// Events
-list.addEventListener('change', (e) => {
-  pos = Array.prototype.indexOf.call(list.childNodes, e.target.parentNode.parentNode);
-  if (e.target.classList.contains('check')) {
-    if (e.target.checked) {
-      Status.toggleLine(e);
-      tasks[pos].completed = true;
-      Status.checkAttribute(e);
-    } else {
-      Status.toggleLine(e);
-      tasks[pos].completed = false;
-      Status.checkAttribute(e);
-    }
-  }
-  localStorage.setItem('tasksList', JSON.stringify(tasks));
-});
-
+// Functions
 const loadList = () => {
   const listItems = [...list.children];
   const items = document.querySelectorAll('.draggables');
@@ -72,11 +41,59 @@ const loadList = () => {
   });
 };
 
+const displayOnLoad = (tasks, list) => {
+  list.innerHTML = '';
+  tasks.forEach((task) => {
+    Task.displayTask(task.description, task.index, list);
+  });
+};
+
+const loadStorage = (tasksOnStorage) => {
+  if (tasksOnStorage !== null) {
+    tasks = JSON.parse(localStorage.getItem('tasksList'));
+    indexPos = tasks.length;
+  } else {
+    indexPos = 0;
+  }
+};
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const newTask = document.getElementById('newTask').value;
+  const addTask = new Task(newTask, false, indexPos);
+  tasks.push(addTask);
+  Task.displayTask(newTask, indexPos, list);
+  e.target.reset();
+  indexPos += 1;
+  Task.edit(tasks, list);
+  localStorage.setItem('tasksList', JSON.stringify(tasks));
+  location.reload(); //eslint-disable-line
+  loadList();
+});
+
+// Events
+list.addEventListener('change', (e) => {
+  pos = Array.prototype.indexOf.call(list.childNodes, e.target.parentNode.parentNode);
+  if (e.target.classList.contains('check')) {
+    if (e.target.checked) {
+      Status.toggleLine(e);
+      tasks[pos].completed = true;
+      Status.checkAttribute(e);
+    } else {
+      Status.toggleLine(e);
+      tasks[pos].completed = false;
+      Status.checkAttribute(e);
+    }
+  }
+  localStorage.setItem('tasksList', JSON.stringify(tasks));
+});
+
 list.addEventListener('click', (e) => {
-  let span, trash;
-  if ( e.target.classList.contains('border-0') || e.target.classList.contains('check')) {
+  let span; let
+    trash;
+  if (e.target.classList.contains('border-0') || e.target.classList.contains('check')) {
     span = e.target;
-    trash = span.parentNode.parentNode.childNodes[2].childNodes[1];
+    trash = span.parentNode.parentNode.childNodes[2].childNodes[1]; //eslint-disable-line
     trash.classList.toggle('d-none');
   }
 });
@@ -86,7 +103,7 @@ list.addEventListener('click', (e) => {
     e.target.parentElement.parentElement.remove();
     pos = Array.prototype.indexOf.call(list.childNodes, e.target.parentElement.parentElement);
     Task.removeSelectedItem(tasks, pos);
-    index_pos = tasks.length;
+    indexPos = tasks.length;
     localStorage.setItem('tasksList', JSON.stringify(tasks));
     loadList();
     Task.edit(tasks, list);
@@ -99,7 +116,7 @@ clearCompletedTasks.addEventListener('click', () => {
     tasks.forEach((task, index) => {
       task.index = index;
     });
-    index_pos = tasks.length;
+    indexPos = tasks.length;
     displayOnLoad(tasks, list);
     localStorage.setItem('tasksList', JSON.stringify(tasks));
     loadList();
@@ -116,23 +133,3 @@ document.addEventListener('DOMContentLoaded', () => {
   loadList();
   Task.edit(tasks, list);
 });
-
-
-//Functions
-const displayOnLoad = (tasks, list) => {
-  list.innerHTML = '';
-  tasks.forEach(task => {
-    Task.displayTask(task.description, task.index, list);
-  });
-}
-
-const loadStorage = (tasksOnStorage) => {
-  if ( tasksOnStorage !== null) {
-    tasks = JSON.parse(localStorage.getItem('tasksList'));
-    index_pos = tasks.length;
-  } else {
-    index_pos = 0;
-  }
-}
-
-
