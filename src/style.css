@@ -11,10 +11,6 @@ body {
   background-color: #f0f1f1;
 }
 
-li[draggable="true"]:not(input[type="text"]) {
-  cursor: move;
-}
-
 .border-bottom {
   border-top: solid 1px black;
 }
@@ -45,7 +41,8 @@ li[draggable="true"]:not(input[type="text"]) {
   border: solid 2px lightgray;
 }
 
-span:focus {
+span:focus,
+input:focus {
   border: none;
   box-shadow: none;
   outline: none;
@@ -76,4 +73,8 @@ i.fas:hover,
 .line {
   text-decoration: line-through;
   opacity: 0.7;
+}
+
+.fa-ellipsis-v {
+  cursor: move;
 }
