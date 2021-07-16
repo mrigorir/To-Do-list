@@ -14,7 +14,9 @@
 
  - Use LocalStorage to preserve data. 
 
- - Update values upon drag & drop events. 
+ - Update values upon drag & drop events.
+
+ - Create add and remove functionality.
 
 ## Image Preview
 ![Screenshot Main Page](./src/assets/imgs/capture.jpg)
