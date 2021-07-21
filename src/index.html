@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+            crossorigin="anonymous">
+    </script>
+    <script src="https://kit.fontawesome.com/9f43e9dbcb.js" crossorigin="anonymous"></script>
+    <title>To Do list</title>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <main claas="d-flex align-items-center justify-content-center flex-column"">
+        <!-- Main title -->
+        <header>
+          <h1 class="text-dark mt-5 text-center">To Do list</h1>
+        </header>
+        <!-- TO DO container -->
+        <section>
+          <div class="text-dark shadow border rounded mt-5 bg-white mx-auto" id="to-do-container">
+            <header>
+              <h5 class="d-flex align-items-center justify-content-between pad">
+                Today's To Do
+                <i class="fas fa-sync fa-rotate-90"></i> 
+              </h5>
+            </header>
+            <!-- TO DO form -->
+            <form role="form" class=" border-top d-flex align-items-center justify-content-between p-3" id="form">
+              <input type="text" placeholder="Add to your list..." class="border-0" id="newTask">
+              <button type="submit" class="submit" value=""><i class="fas fa-level-down-alt fa-rotate-90"></i></button>
+            </form>
+            <ul id="list" class="m-0 p-0">
+             
+            </ul>
+            <div class="p-3 border-top d-flex align-items-center justify-content-center bg-clear-button text-capitalize">
+              <a href="#" class="clear-tab text-decoration-none"> clear all completed </a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</div>
+</body>
+</html>
