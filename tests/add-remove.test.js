@@ -98,3 +98,89 @@
      ]);
    });
  });
+
+ describe('remove', () => {
+
+    document.body.innerHTML = 
+    '<form role="form" class=" border-top d-flex align-items-center justify-content-between p-3" id="form">'
+    + '<input type="text" name="task" id="task" class="border-0" value="Plop">'
+    + '</form>'
+    + '<ul class="list">'
+    + '<li data-id="0" class="item"><i class="fas fa-trash-alt remove"></i></li>'
+    + '<li data-id="1" class="item"><i class="fas fa-trash-alt remove"></i></li>'
+    + '<li data-id="2" class="item"><i class="fas fa-trash-alt remove"></i></li>'
+    +'</ul>';
+    const listTask = [
+      {
+        description: 'suka',
+        status: false,
+        index: 0,
+      },
+      {
+        description: 'energy bloom',
+        status: true,
+        index: 1,
+      },
+      {
+        description: 'elden ring',
+        status: false,
+        index: 2,
+      },
+    ];
+    const localStorage = new LocalStorage();
+    localStorage.setDataLocalStorage(listTask);
+  
+    const update = (list) => {
+      localStorage.setDataLocalStorage(list);
+      const firstArray = [];
+      const secondArray = [];
+      for (let i = 0; i <= list.length; i += 1) {
+        firstArray.push(i);
+      }
+      list.forEach((element) => secondArray.push(element.index));
+  
+      const difference = firstArray.filter((x) => secondArray.indexOf(x) === -1);
+      const templateString = `li[data-id="${difference[0]}"]`;
+      const element = document.querySelector(templateString);
+      element.remove();
+    };
+  
+    const checkNumberTask = () => [...document.querySelector('.list').children].length;
+  
+    const element = document.querySelector('li[data-id="0"] .remove');
+  
+    const removeTask = (element) => {
+      const isRemoveIcon = element.classList.contains('remove');
+      if (isRemoveIcon) {
+        const listTasks = localStorage.getDataLocalStorage();
+        const id = parseInt(element.parentElement.dataset.id, 10);
+        listTasks.splice(id, 1);
+        update(listTasks);
+        return listTasks;
+      }
+      return false;
+    };
+  
+    test('remove an item from the tasks list', () => {
+      expect(removeTask(element)).toHaveLength(2);
+    });
+  
+    test('remove an item from the HTML', () => {
+      expect(checkNumberTask()).toBe(2);
+    });
+  
+    test('test localStorage get function', () => {
+      expect(localStorage.getDataLocalStorage()).toEqual([
+        {
+          description: 'energy bloom',
+          status: true,
+          index: 1,
+        },
+        {
+          description: 'elden ring',
+          status: false,
+          index: 2,
+        },
+      ]);
+    });
+  });
