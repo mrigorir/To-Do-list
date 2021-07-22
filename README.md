@@ -18,6 +18,8 @@
 
  - Create add and remove functionality.
 
+ - Create a test enviroment for add and remove functionalities.
+
 ## Image Preview
 ![Screenshot Main Page](./src/assets/imgs/capture.jpg)
 
@@ -57,7 +59,7 @@ To make sure the linters' checks using Github Actions work properly, you should 
 
 ### Usage 
 
-- Make sure you have npm and bode installe in your terminal.
+- Make sure you have npm and node installed in your terminal.
 
 - I recommend the use of VS code as a code editor, but you can use whatever you want.
 
@@ -65,6 +67,15 @@ To make sure the linters' checks using Github Actions work properly, you should 
 
 - run `npm install express` in case you get the error after running the server.
 
+
+### Test setup
+
+- Run `yarn add --dev jest` OR `npm install --save-dev`
+
+- Install babel compiler globally: `npm install --save-dev @babel/plugin-transform-modules-commonjs`
+
+- Run `yarn test` OR `npm run test` to check results.
+  
 ## Author
 
 👤 **Marco Parra**
@@ -72,6 +83,12 @@ To make sure the linters' checks using Github Actions work properly, you should 
 - GitHub: [@mrigorir](https://github.com/mrigorir)
 - Twitter: [@marcoparra311](https://twitter.com/marcoparra311)
 - LinkedIn: [@marco-alonso-parra](https://www.linkedin.com/in/marco-alonso-parra/)
+
+👤 **Eduardo Auditore**
+
+- GitHub: [@EroAuditore](https://github.com/EroAuditore)
+- Twitter: [@EroAuditore](https://twitter.com/EroAuditore)
+- LinkedIn: [EroAuditore](https://www.linkedin.com/in/EroAuditore/)
 
 ## 🤝 Contributing
 
