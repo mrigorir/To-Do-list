@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
- const LocalStorage = require('../src/__mocks__/localStorage');
+ const LocalStorage = require('../src/__mocks__/localStorage.js');
  
  describe('Update checkbox and task status', () => {
    // Arrange --------------------------------------------------------------------------->
@@ -61,9 +61,8 @@
      expect(getStatusCheckBoxDom()).toBeTruthy();
    });
  });
- 
- describe('remove checked tasks', () => {
-  ​
+
+ describe('remove checked tasks', () => {​
      document.body.innerHTML = 
          '<ul class="list">'
        + '<li data-id="0" class="item">'
