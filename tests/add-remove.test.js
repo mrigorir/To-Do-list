@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  */
 
-const Task = require('./task.js');
-const LocalStorage = require('./localStorage.js');
+const Task = require('../src/__mocks__/task');
+const LocalStorage = require('../src/__mocks__/localStorage');
 
 describe('add', () => {
   document.body.innerHTML = '<form role="form" class=" border-top d-flex align-items-center justify-content-between p-3" id="form">'
@@ -45,6 +45,7 @@ describe('add', () => {
      return [checkBox, label, icon, task];
    };
  
+   // Act --------------------------------------------------------------------------->
    const add = (event) => {
      if (event.keyCode === 13) {
        const listTasks = localStorage.getDataLocalStorage();
@@ -61,7 +62,8 @@ describe('add', () => {
    };
  
    const addFunction = add(event);
-
+ 
+   //   Assert --------------------------------------------------------------------------->
    test('add an element to task list', () => {
      expect(addFunction.length === 1).toBeTruthy();
    });
@@ -180,3 +182,5 @@ describe('add', () => {
       ]);
     });
   });
+
+  
