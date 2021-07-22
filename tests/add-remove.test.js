@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  */
 
-const Task = require('../src/__mocks__/task');
-const LocalStorage = require('../src/__mocks__/localStorage');
+const Task = require('../src/__mocks__/task.js');
+const LocalStorage = require('../src/__mocks__/localStorage.js');
 
 describe('add', () => {
   document.body.innerHTML = '<form role="form" class=" border-top d-flex align-items-center justify-content-between p-3" id="form">'

@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const LocalStorage = require('../src/__mocks__/localStorage');
+const LocalStorage = require('../src/__mocks__/localStorage.js');
 
 describe('edit', () => {
   document.body.innerHTML = `${+'<ul class="list">'
