@@ -62,4 +62,91 @@
    });
  });
  
+ describe('remove checked tasks', () => {
+  ​
+     document.body.innerHTML = 
+         '<ul class="list">'
+       + '<li data-id="0" class="item">'
+       + '<input class="checkBox" type="checkbox">'
+       + '<label class="text">Camp</label>'
+       + '<i class="fas fa-trash-alt remove"></i>'
+       + '</li>'
+       + '<li data-id="1" class="item">'
+       + '<input class="checkBox" type="checkbox" checked="true">'
+       + '<label class="text">Find food</label>'
+       + '<i class="fas fa-trash-alt remove"></i>'
+       + '</li>'
+       + '<li data-id="2" class="item">'
+       + '<input class="checkBox" type="checkbox" checked="true">'
+       + '<label class="text">Walk</label>'
+       + '<i class="fas fa-trash-alt remove"></i>'
+       + '</li>'
+       + '</ul>';
+   
+     const localStorage = new LocalStorage();
+     const listTask = [
+       {
+         description: 'Camp',
+         status: false,
+         index: 0,
+       },
+       {
+         description: 'Find food',
+         status: true,
+         index: 1,
+       },
+       {
+         description: 'Walk',
+         status: true,
+         index: 2,
+       },
+     ];
+     localStorage.setDataLocalStorage(listTask);
+   
+     const update = (list) => {
+       localStorage.setDataLocalStorage(list);
+   
+       const firstArrayIndex = [];
+       const secondArrayIndex = [];
+       for (let i = 0; i < listTask.length; i += 1) {
+         firstArrayIndex.push(i);
+       }
+       list.forEach((element) => secondArrayIndex.push(element.index));
+   
+       const difference = firstArrayIndex.filter((x) => secondArrayIndex.indexOf(x) === -1);
+       difference.forEach((index) => {
+         const identifier = `li[data-id="${index}"]`;
+         document.querySelector(identifier).remove();
+       });
+     };
+   
+     const getTaskDomLength = () => {
+       const tasksDom = [...document.querySelectorAll('.item')];
+       return tasksDom.length;
+     };
+   
+     const removeTaskChecked = () => {
+       const listTasks = localStorage.getDataLocalStorage();
+       if (listTasks !== []) {
+         const newListTask = listTasks.filter((task) => task.status === false);
+         update(newListTask);
+       }
+     };
+   
+     removeTaskChecked();
+   
+     test('remove from localStorage', () => {
+       expect(localStorage.getDataLocalStorage()).toEqual([
+         {
+           description: 'Camp',
+           status: false,
+           index: 0,
+         },
+       ]);
+     });
+   
+     test('remove from HTML', () => {
+       expect(getTaskDomLength()).toBe(1);
+     });
+   });
  
